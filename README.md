@@ -20,7 +20,7 @@ $ ollama pull starcoder2:3b
 $ ollama pull nomic-embed-text:v1.5
 ```
 
-Then, go to http://localhost:8080 and setup your account and then start using ollama.
+Then, go to http://localhost:8080 and setup your account and then start using ollama after selecting the model on the list in the left upper corner.
 
 Also, check the `continue-config.json` file in the root of this repo for more information about how to configure the continue extension.
 A copy/paste should be enough.
