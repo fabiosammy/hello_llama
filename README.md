@@ -28,7 +28,7 @@ Then, go to [http://localhost:8080](http://localhost:8080) and setup your accoun
 
 Also, check the `continue-config.json` file in the root of this repo for more information about how to configure the continue extension.
 A copy/paste should be enough.
-You can grab more information about the continue integration with ollama [here](https://ollama.com/blog/continue-code-assistant)
+You can grab more information about the continue integration with ollama [here](https://ollama.com/blog/continue-code-assistant) and [here](https://www.continue.dev/)
 
 # Troubleshooting
 
