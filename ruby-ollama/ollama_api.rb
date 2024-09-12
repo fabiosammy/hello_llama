@@ -11,7 +11,7 @@ class OllamaAPI
   end
 
   # https://github.com/ollama/ollama/blob/main/docs/api.md#generate-a-completion
-  def ask(prompt:, model: DEFAULT_MODEL, stream: false)
+  def ask(prompt, model: DEFAULT_MODEL, stream: false)
     params = {
       model: model,
       prompt: prompt,
