@@ -3,6 +3,10 @@
 * Tested on a laptop with an AMD GPU, the Radeon RX 6600M.
 * At least 100GB of free space
 
+Take a look on the presentation about this project:
+* [Google Slides](https://docs.google.com/presentation/d/16DHr4MDp82253BK_NwK5WyROz9VydePBUGW5eSJQvqg/edit?usp=sharing)
+* [Youtube video](https://www.youtube.com/live/2p0q78q7DuQ)
+
 # Installing
 
 First, Spin up the services, ollama and open-webui:
