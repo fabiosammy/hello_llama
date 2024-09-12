@@ -22,6 +22,9 @@ $ ollama pull nomic-embed-text:v1.5
 
 Then, go to http://localhost:8080 and setup your account and then start using ollama.
 
+Also, check the `continue-config.json` file in the root of this repo for more information about how to configure the continue extension.
+A copy/paste should be enough.
+
 # Troubleshooting
 
 * you can check the files on https://github.com/open-webui/open-webui to see if anythings there help you own setup
