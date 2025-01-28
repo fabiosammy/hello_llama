@@ -34,6 +34,28 @@ Also, check the `continue-config.json` file in the root of this repo for more in
 A copy/paste should be enough.
 You can grab more information about the continue integration with ollama [here](https://ollama.com/blog/continue-code-assistant) and [here](https://www.continue.dev/)
 
+# Deepseek variance
+
+The openai breaker, easy:
+
+```bash
+$ docker compose exec ollama bash
+# ollama pull deepseek-r1:7b
+# exit
+```
+
+The continue will list the new model in the vscode. Or you could just try it our in the container
+
+```bash
+$ docker compose exec ollama bash
+# ollama run deepseek-r1:7b
+>>> Send a message (/? for help)
+>>> Hey, can you give me a ruby example on how to interact with the ollama api?
+...
+>>> /bye
+# exit
+```
+
 # Troubleshooting
 
 * you can check the files on [https://github.com/open-webui/open-webui](https://github.com/open-webui/open-webui) to see if anythings there help you own setup
