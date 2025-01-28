@@ -12,16 +12,16 @@ Take a look on the presentation about this project:
 First, Spin up the services, ollama and open-webui:
 
 ```
-$ docker compose up
+docker compose up
 ```
 
 Now, in a new terminal, connect to the ollama container, and then download the models that you need, we recommend the combination below:
 
 ```
-$ docker compose exec ollama bash
-$ ollama pull llama3.1:8b
-$ ollama pull starcoder2:3b
-$ ollama pull nomic-embed-text:v1.5
+docker compose exec ollama bash
+ollama pull llama3.1:8b
+ollama pull starcoder2:3b
+ollama pull nomic-embed-text:v1.5
 ```
 
 The llama model for chat, and the starcoder2 for autocomplete with the nomic-embed-text model for embeddings (an approach to reduce the complexity).
@@ -39,21 +39,21 @@ You can grab more information about the continue integration with ollama [here](
 The openai breaker, easy:
 
 ```bash
-$ docker compose exec ollama bash
-# ollama pull deepseek-r1:7b
-# exit
+docker compose exec ollama bash
+ollama pull deepseek-r1:7b
+exit
 ```
 
 The continue will list the new model in the vscode. Or you could just try it our in the container
 
 ```bash
-$ docker compose exec ollama bash
-# ollama run deepseek-r1:7b
+docker compose exec ollama bash
+ollama run deepseek-r1:7b
 >>> Send a message (/? for help)
 >>> Hey, can you give me a ruby example on how to interact with the ollama api?
 ...
 >>> /bye
-# exit
+exit
 ```
 
 # Troubleshooting
