@@ -1,7 +1,6 @@
 services:
   ollama:
     image: ollama/ollama
-    container_name: ollama
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
