@@ -1,6 +1,7 @@
 # Requirements
 
 * Tested on a laptop with an AMD GPU, the Radeon RX 6600M.
+* Tested on a laptop with an NVIDIA GPU, the RTX 4050
 * At least 100GB of free space
 
 Take a look on the presentation about this project:
@@ -9,16 +10,47 @@ Take a look on the presentation about this project:
 
 # Installing
 
+- For Nvidia use the `docker-compose-nvidia.yaml`
+- For AMD use the `docker-compose-amd.yaml`
+
+<img src="https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/351px-Nvidia_logo.svg.png?20150924223142" width="50" heigth="50"> If you use NVIDIA, prepare your environment:
+
+1. Configure the repository
+
+```bash
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
+    | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list \
+    | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' \
+    | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+sudo apt-get update
+```
+
+2. Install the NVIDIA Container Toolkit packages
+
+```bash
+sudo apt-get install -y nvidia-container-toolkit
+```
+
+3. Configure Docker to use Nvidia driver
+
+```bash
+sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
+```
+
+Now you can run docker
+
 First, Spin up the services, ollama and open-webui:
 
 ```
-docker compose up
+docker compose up -f <the corresponding gpu file>
 ```
 
 Now, in a new terminal, connect to the ollama container, and then download the models that you need, we recommend the combination below:
 
 ```
-docker compose exec ollama bash
+docker compose -f <the corresponding gpu file> exec ollama bash
 ollama pull llama3.1:8b
 ollama pull starcoder2:3b
 ollama pull nomic-embed-text:v1.5
@@ -39,7 +71,7 @@ You can grab more information about the continue integration with ollama [here](
 The openai breaker, easy:
 
 ```bash
-docker compose exec ollama bash
+docker compose -f <the corresponding gpu file> exec ollama bash
 ollama pull deepseek-r1:7b
 exit
 ```
@@ -47,7 +79,7 @@ exit
 The continue will list the new model in the vscode. Or you could just try it our in the container
 
 ```bash
-docker compose exec ollama bash
+docker compose -f <the corresponding gpu file> exec ollama bash
 ollama run deepseek-r1:7b
 >>> Send a message (/? for help)
 >>> Hey, can you give me a ruby example on how to interact with the ollama api?
