@@ -1,3 +1,7 @@
+# WebUi
+
+<img src="./readme/webui-screenshot.png">
+
 # Requirements
 
 * Tested on a laptop with an AMD GPU, the Radeon RX 6600M.
@@ -38,8 +42,27 @@ sudo apt-get install -y nvidia-container-toolkit
 sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl restart docker
 ```
+4. If you encounter the
 
-Now you can run docker
+`no nvidia devices detected by library /usr/lib/x86_64-linux-gnu/libcuda.so`
+
+you can solve by editing `/etc/nvidia-container-runtime/config.toml` as:
+
+```bash
+sudo nano  /etc/nvidia-container-runtime/config.toml
+```
+
+change `no-cgroups = false`
+
+save the file and restart docker:
+
+```bash
+sudo systemctl restart docker
+```
+
+more about it: https://github.com/ollama/ollama/issues/6840
+
+Now you can run the project
 
 First, Spin up the services, ollama and open-webui:
 
