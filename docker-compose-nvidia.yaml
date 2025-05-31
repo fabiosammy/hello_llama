@@ -1,0 +1,30 @@
+services:
+  ollama:
+    image: ollama/ollama
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    ports:
+      - 11434:11434
+    volumes:
+      - ./ollama:/root/.ollama
+
+  webui:
+    image: ghcr.io/open-webui/open-webui:v0.3.21
+    depends_on:
+      - ollama
+    ports:
+      - 8080:8080
+    volumes:
+      - ./webui:/app/backend/data
+    extra_hosts:
+      - host.docker.internal:host-gateway
